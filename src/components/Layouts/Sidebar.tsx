@@ -1,12 +1,15 @@
 import { useEffect } from "react";
 import { IRootState, useAppDispatch, useAppSelector } from "../../store";
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { toggleSidebar } from "../../store/themeConfigSlice";
 import IconCaretsDown from "../Icon/IconCaretsDown";
 import PerfectScrollbar from "react-perfect-scrollbar";
 import IconMenuContacts from "../Icon/IconMenuContacts";
 import { sidebarItems } from "@/common/sidebarItems";
 import easygenerator_logo from "../../assets/images/easygenerator_logo.png";
+import { Button } from "@headlessui/react";
+import { logout } from "@/store/slices/auth/slice";
+import IconLogout from "../Icon/IconLogout";
 
 type Props = {};
 
@@ -17,6 +20,12 @@ export default function Sidebar({}: Props) {
   );
   const location = useLocation();
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/auth/login");
+  };
 
   useEffect(() => {
     if (window.innerWidth < 1024 && themeConfig.sidebar) {
@@ -57,7 +66,7 @@ export default function Sidebar({}: Props) {
               <IconCaretsDown className="m-auto rotate-90" />
             </button>
           </div>
-          <PerfectScrollbar className="h-[calc(100vh-80px)] relative">
+          <PerfectScrollbar className="h-[calc(100vh-80px)] relative flex flex-col justify-between">
             <ul className="relative font-semibold space-y-0.5 p-4 py-0">
               {sidebarItems.map((item) => (
                 <li className="nav-item" key={item.name}>
@@ -72,6 +81,10 @@ export default function Sidebar({}: Props) {
                 </li>
               ))}
             </ul>
+            <Button onClick={handleLogout} className="text-danger !py-3 flex items-center justify-center gap-6 w-full">
+              <IconLogout className="w-4.5 h-4.5 ltr:mr-2 rtl:ml-2 rotate-90 shrink-0" />
+              Sign Out
+            </Button>
           </PerfectScrollbar>
         </div>
       </nav>

@@ -41,7 +41,12 @@ const ReportsSnapshot = () => {
     fetchReport();
   }, []);
 
-  if (loading) return <Loading />;
+  if (loading)
+    return (
+      <div className="flex justify-center items-center min-h-[50vh]">
+        <Loading />
+      </div>
+    );
   if (error) return <ErrorState message={error} />;
   if (!report)
     return <p className="text-default-500 p-4">No report data available.</p>;

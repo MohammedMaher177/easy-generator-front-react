@@ -7,7 +7,7 @@ type Props = {
     onClose: () => void;
     onSubmit: () => void;
     loading?: boolean;
-    children: React.JSX.Element;
+    children: React.ReactNode;
 };
 
 export default function FadeInModal({ onClose, onSubmit, show, loading, children }: Props) {

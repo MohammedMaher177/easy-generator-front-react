@@ -1,5 +1,5 @@
 export const sidebarItems = [
-    { name: 'home', path: '/' },
-    { name: 'todos', path: '/todos' },
+    { name: 'Home', path: '/' },
+    { name: 'Todos', path: '/todos' },
     // { name: 'users', path: '/users' },
 ];

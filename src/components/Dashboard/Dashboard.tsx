@@ -9,7 +9,7 @@ export default function Dashboard({}: Props) {
                 <div className="text-2xl font-medium text-default-800 ">Analytics Dashboard</div>
             </div>
 
-            <div className="flex justify-between w-full gap-6 ">
+            <div className="flex justify-center w-full gap-6 items-center">
                 <ReportsSnapshot />
             </div>
         </div>

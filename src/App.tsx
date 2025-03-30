@@ -10,13 +10,16 @@ import {
 } from "./store/themeConfigSlice";
 import { getFromLocal } from "./util/util";
 import { setAuth } from "./store/slices/auth/slice";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { howAmI } from "./store/slices/auth/actions";
 
 function App({ children }: PropsWithChildren) {
   const themeConfig = useAppSelector((state: IRootState) => state.themeConfig);
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
+
+  console.log({ location });
 
   const initUser = () => {
     const token = getFromLocal("jwt_access_token");
@@ -24,6 +27,7 @@ function App({ children }: PropsWithChildren) {
       dispatch(howAmI());
     } else {
       dispatch(setAuth(false));
+      if (location.pathname.includes("auth")) return;
       navigate("/auth/login");
     }
   };

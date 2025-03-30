@@ -7,7 +7,7 @@ type Props = {
   show: boolean;
   onClose: () => void;
   onSubmit?: () => void;
-  children: React.JSX.Element;
+  children: React.ReactNode;
   loading?: boolean;
 };
 
@@ -54,7 +54,7 @@ export default function CustomModal({
               <Dialog.Panel
                 className={`${
                   fullScreen ? "w-[90%] " : "max-w-md"
-                } transform overflow-auto rounded-2xl pb-[8rem] text-white bg-white p-6 text-left align-middle shadow-xl transition-all scrollbar scrollbar-thumb-gray-500 max-h-[95vh] scrollbar-track-gray-200`}
+                } transform overflow-hidden rounded-2xl pb-[8rem] text-white bg-white p-6 text-left align-middle shadow-xl transition-all`}
               >
                 <div className="flex items-center justify-between">
                   <button
