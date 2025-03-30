@@ -7,6 +7,8 @@ import { Form, Formik } from 'formik';
 import { validateForm } from '@/util/util';
 import InputWRapper from '@/components/inputs/InputWRapper';
 import { ILogin, InputType } from '@/util/interfaces';
+import { useEffect } from 'react';
+import { resetErrors } from '@/store/slices/auth/slice';
 type Props = {};
 
 const inputs: { name: string; type?: InputType }[] = [
@@ -28,7 +30,7 @@ const schema = Joi.object({
     }),
 });
 
-const initialValues: ILogin = { email: 'admin@easygenerator.com', password: 'Milo@2024!' };
+const initialValues: ILogin = { email: '', password: '' };
 
 export default function LoginForm({}: Props) {
     const dispatch = useAppDispatch();
@@ -42,6 +44,10 @@ export default function LoginForm({}: Props) {
 
         if (type.includes('fulfilled')) navigate('/');
     };
+
+    useEffect(() => {
+       dispatch(resetErrors())
+    }, []);
 
 
     return (
