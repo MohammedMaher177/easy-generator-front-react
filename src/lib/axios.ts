@@ -2,7 +2,8 @@
 import { deleteFromLocal } from "@/util/util";
 import axios from "axios";
 
-const baseURL = 'http://localhost:3001'
+const baseURL = 'https://hissing-christie-personal-2-38808a4c.koyeb.app'
+// const baseURL = 'http://localhost:3001'
 
 
 const apiClient = axios.create({
@@ -29,7 +30,12 @@ apiClient.interceptors.request.use(
 );
 
 apiClient.interceptors.response.use(
-    response => response,
+    response => {
+
+        console.log({ response });
+
+        return response
+    },
     error => {
         console.log(error);
 

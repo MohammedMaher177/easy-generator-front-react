@@ -10,7 +10,7 @@ const defaultState = {
   animation: "",
   navbar: "navbar-sticky",
   locale: "en",
-  sidebar: false,
+  sidebar: true,
   pageTitle: "",
   semidark: false,
 };
@@ -31,8 +31,6 @@ const themeConfigSlice = createSlice({
   initialState: initialState,
   reducers: {
     toggleTheme(state, { payload }) {
-      console.log({ payload });
-
       payload = payload || state.theme; // light | dark | system
       localStorage.setItem("theme", payload);
       state.theme = payload;
@@ -59,7 +57,7 @@ const themeConfigSlice = createSlice({
     },
     toggleMenu(state, { payload }) {
       payload = payload || state.menu; // vertical, collapsible-vertical, horizontal
-    //   state.sidebar = false; // reset sidebar state
+      //   state.sidebar = false; // reset sidebar state
       localStorage.setItem("menu", payload);
       state.menu = payload;
     },
@@ -85,6 +83,7 @@ const themeConfigSlice = createSlice({
       state.semidark = payload;
     },
     toggleSidebar(state) {
+      localStorage.setItem("sidebar", String(!state.sidebar));
       state.sidebar = !state.sidebar;
     },
   },

@@ -1,13 +1,14 @@
-import { Spinner } from "@radix-ui/themes"
+// import { Spinner } from "@radix-ui/themes"
+import styles from "./loading.module.css";
 
+type Props = {};
 
-type Props = {}
-
-export default function Loading({ }: Props) {
-    return (
-        <div className="text-center">
-            <Spinner aria-label="Center-aligned spinner example" />
-            <h1>LOADING .....</h1>
-        </div>
-    )
+export default function Loading({}: Props) {
+  return (
+    <span className={styles.loader}></span>
+    // <div className="text-center">
+    //     <Spinner aria-label="Center-aligned spinner example" />
+    //     <h1>LOADING .....</h1>
+    // </div>
+  );
 }

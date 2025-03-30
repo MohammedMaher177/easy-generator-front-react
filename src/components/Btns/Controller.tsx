@@ -19,7 +19,7 @@ export default function Controller({ onCancel, loading, onSubmit, disabled }: Pr
                     type="submit"
                     onClick={onSubmit}
                     disabled={loading || disabled}
-                    className={`rounded-full px-7 py-2 border-none text-white text-sm md:text-base font-semibold font-inter flex items-center justify-center
+                    className={`rounded-full px-7 py-2 border-none bg-violet-700 text-white text-sm md:text-base font-semibold font-inter flex items-center justify-center
                         bg-gradient-bg transition-opacity
                         ${loading || disabled ? 'opacity-50 cursor-not-allowed' : 'hover:opacity-90'}`}
                 >

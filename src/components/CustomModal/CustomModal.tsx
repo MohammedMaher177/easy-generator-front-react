@@ -54,7 +54,7 @@ export default function CustomModal({
               <Dialog.Panel
                 className={`${
                   fullScreen ? "w-[90%] " : "max-w-md"
-                } transform overflow-hidden rounded-2xl pb-[8rem] text-white bg-white p-6 text-left align-middle shadow-xl transition-all`}
+                } transform overflow-auto rounded-2xl pb-[8rem] text-white bg-white p-6 text-left align-middle shadow-xl transition-all scrollbar scrollbar-thumb-gray-500 max-h-[95vh] scrollbar-track-gray-200`}
               >
                 <div className="flex items-center justify-between">
                   <button
@@ -79,7 +79,7 @@ export default function CustomModal({
 
                 <div className="p-5">
                   <div className="mt-8 flex items-center justify-end">
-                    {!!onClose && (
+                    {/* {!!onClose && (
                       <button
                         onClick={onClose}
                         type="button"
@@ -87,7 +87,7 @@ export default function CustomModal({
                       >
                         Discard
                       </button>
-                    )}
+                    )} */}
                     {!!onSubmit ? (
                       loading ? (
                         <Loading />

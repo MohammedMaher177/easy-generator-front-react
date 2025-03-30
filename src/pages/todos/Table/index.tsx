@@ -45,8 +45,6 @@ export default function TodosTable({ data }: Props) {
         dispatch(updateRecord({ id: updates.id, payload: updates.data }));
     };
 
-    console.log({ data });
-
     useEffect(() => {
         if (success) {
             setUpdated(null);

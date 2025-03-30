@@ -29,8 +29,6 @@ const Header = () => {
     navigate("/auth/login");
   };
 
-  console.log({ sidebar: themeConfig.sidebar });
-
   return (
     <header
       className={`z-40 ${
