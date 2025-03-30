@@ -7,7 +7,6 @@ import IconMenu from "../Icon/IconMenu";
 import IconSearch from "../Icon/IconSearch";
 import IconSun from "../Icon/IconSun";
 import IconLaptop from "../Icon/IconLaptop";
-import IconUser from "../Icon/IconUser";
 import IconLogout from "../Icon/IconLogout";
 import { logout } from "@/store/slices/auth/slice";
 import { Button } from "@headlessui/react";
